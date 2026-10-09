@@ -62,6 +62,11 @@ topotime-diffusion/
 *   **Ядро системы:** Язык программирования Python 3.12.3.
 *   **Аппаратное ускорение:** Развертывание требует наличия установленного NVIDIA Container Toolkit на хост-машине для полноценного проброса CUDA/CuDNN ядер.
 
+## Стандарты
+* PEP 8 (https://peps.python.org/pep-0008/)
+* PEP 257 Docstring Conventions (https://peps.python.org/pep-0257/)
+
+
 Сборка образа с использованием BuildKit-кэширования слоев и запуск сквозного расчета выполняются стандартными командами:
 
 ```bash
@@ -75,4 +80,4 @@ docker compose up
 docker compose run --rm topotime_pipeline pytest tests/
 ```
 
-Код написан по стандартам PEP 8 и PEP 257 Docstring Conventions
+Для просмотра результата можно воспользоваться `wandb` либо посмотреть сгенерированный `PDF` файл в папке `/outputs`
