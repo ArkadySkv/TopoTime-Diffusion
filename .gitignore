@@ -1,0 +1,26 @@
+# === Секреты и Локальное окружение ===
+.env
+.env.*
+
+# === Кэш Python и артефакты выполнения ===
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.pytest_cache/
+
+# === Тяжелые бинарные артефакты и веса моделей ===
+checkpoints/
+*.pt
+*.pth
+*.safetensors
+*.whl
+
+# === Локальные папки экспериментов и логов ( volumes ) ===
+outputs/
+wandb/
+data/
+
+# === Системные файлы хоста ===
+.DS_Store
+Thumbs.db

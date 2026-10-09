@@ -1,0 +1,32 @@
+services:
+  topotime_pipeline:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      args:
+        - CUDA_VERSION=12.4.1
+    image: topotime-diffusion:v1
+    container_name: topotime_diffusion_container
+    user: "${UID}:${GID}"
+
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              count: all
+              capabilities: [gpu]
+    volumes:
+      - ./local_packages/pyg-lib:/app/local_packages/pyg-lib
+      - ./data:/app/data
+      - ./checkpoints:/app/checkpoints
+      - ./configs:/app/configs
+      - ./outputs:/app/outputs
+    environment:
+      - WANDB_API_KEY=${WANDB_API_KEY:-""}
+      - WANDB_DISABLE_GIT=${WANDB_DISABLE_GIT:-"false"}
+      - HYDRA_FULL_ERROR=1
+      - WANDB_MODE=${WANDB_MODE:-"offline"}
+      - HF_HOME=/.cache/huggingface
+      - PYTHONPATH=/app
+    restart: on-failure
