@@ -1,4 +1,3 @@
-# src/validation/report_generator.py
 import os
 import matplotlib.pyplot as plt
 import numpy as np
