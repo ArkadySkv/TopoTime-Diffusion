@@ -1,4 +1,7 @@
-from setuptools import setup, find_packages
+# local_packages/pyg-lib/setup.py
+"""Setup script for building the local pyg-lib package extension."""
+
+from setuptools import find_packages, setup
 
 setup(
     name="pyg-lib",
