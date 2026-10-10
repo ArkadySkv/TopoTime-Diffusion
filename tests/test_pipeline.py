@@ -8,7 +8,6 @@ persistence homology extractions, and radius graph construction.
 import numpy as np
 from darts import TimeSeries
 import pytest
-import torch
 
 from src.preprocessing.dataloader import ProteinTrajectoryLoader
 from src.preprocessing.graph_builder import ProteinGraphBuilder
