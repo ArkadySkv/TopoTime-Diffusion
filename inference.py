@@ -1,8 +1,8 @@
 # inference.py
-"""Run standalone inference for the TopoTime-Diffusion pipeline.
+"""Run standalone inference pipeline for TopoTime-Diffusion backbones.
 
-Load trained weights from the model registry checkpoints and generate
-stable viral backbone 3D conformations based on predicted kinetics.
+Load pre-trained weights from checkpoints and generate stable 3D atomic
+conformations under the guidance of times-series trends and topology.
 """
 
 import os
@@ -28,7 +28,9 @@ def run_standalone_inference(
     timesfm_horizon = 16
 
     # 1. Инициализируем генеративный движок диффузии Point-E
-    engine = TopoTimeDiffusionEngine(d_model=64, timesfm_horizon=timesfm_horizon)
+    engine = TopoTimeDiffusionEngine(
+        d_model=64, timesfm_horizon=timesfm_horizon
+    )
 
     # 2. Подгружаем сохраненный мозг модели из чекпоинта
     engine.load_checkpoint(checkpoint_path)
